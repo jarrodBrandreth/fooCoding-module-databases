@@ -1,9 +1,9 @@
 # Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
 
 Objective: This class introduces more clauses (group by, having) in the
-select statement. MySQL joins (inner, self, left and right) are further 
-discussed and should be explained with demonstration (Employee table with 
-**reportsTo** field and Department table with its PK in Employee table is 
+select statement. MySQL joins (inner, self, left and right) are further
+discussed and should be explained with demonstration (Employee table with
+**reportsTo** field and Department table with its PK in Employee table is
 suitable for this demonstration).
 
 Promise based JavaScript program with SQL prepared statements should be
@@ -51,18 +51,21 @@ ALTER TABLE Employee ADD CONSTRAINT fk_dept foreign key (dept_id) references Dep
 
 A database dump (aka SQL dump) contains a record of the table structure
 and/or the data from a database and is usually in the form of a list of SQL statements.
-(An example file named `world.sql` is present in the Week2 folder)
+
 
 - Collecting the dump of an existing database from terminal `mysqldump -uroot -p database > dump-file.sql`
 - Applying the dump from mysql command prompt `source /path/to/the/dump/file`
-- Applying the dump from the terminal `mysql -uroot -p [database] < /path/to/the/dump/file`
+- Applying the dump from the terminal `mysql -uroot -p [database] < /path/to/the/dump/file`  
+
+Please refer to the MySQL manual to look at the possible options.  
+ ( I usually recommend adding `--routines` (to include stored procedures/functions) and `--hex-blob` (to export/import binary data correctly) )
 
 ### Group by and Having clauses
 
 - *Group by* clause is used to group rows with same values.
 - It can be used in conjunction with aggregate functions (E.g. min, max).
 - The queries that contain the *group by* clause only return a single row for every grouped item.
-- *Having* clause restricts the query results of *group by* clause.
+- *Having* clause restricts the query results, mostly used together with *group by* clause.
 
 ### INSERT INTO table SET syntax
 
