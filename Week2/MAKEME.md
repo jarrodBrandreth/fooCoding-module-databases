@@ -12,13 +12,13 @@ about prepared statements.
 1. What is the capital of country X ? (Accept X from user)
 2. List all the languages spoken in the region Y (Accept Y from user)
 3. Find the number of cities in which language Z is spoken (Accept Z from user)
-4. Are there any countries that have
+4. List all the continents with the number of languages spoken in each continent
+**Bonus question**
+5. Are there any countries that have
     A) Same official language
     B) Same region
    If yes, display those countries.
    If no, display TRUE or FALSE
-5. List all the continents with the number of languages spoken in each continent
-
 
 ## Part 2 : SQL research
 I want to get alerts when a country has >= 10 languages.
