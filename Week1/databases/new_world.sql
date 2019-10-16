@@ -15,8 +15,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-DROP SCHEMA IF EXISTS new_world;
-CREATE SCHEMA new_world;
+-- 
+-- removed since we dont want to drop someone elses schema
+--  DROP SCHEMA IF EXISTS new_world
+-- 
+
+CREATE SCHEMA IF NOT EXISTS new_world;
 USE new_world;
 SET AUTOCOMMIT=0;
 
