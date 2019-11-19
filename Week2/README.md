@@ -1,10 +1,12 @@
-# Lesson 2: Group by, Having and Joins. Promisification of JS client with prepared statements
+# Lesson 2: SQL, group by, having and joins.
 
-Objective: This class introduces more clauses (group by, having) in the
-select statement. MySQL joins (inner, self, left and right) are further
-discussed and should be explained with demonstration (Employee table with
+Objective: This class introduces SQL in more detail. MySQL joins (inner, self, left and right) are further discussed and are explained with demonstration (Employee table with
 **reportsTo** field and Department table with its PK in Employee table is
-suitable for this demonstration).
+suitable for this demonstration). Also, subqueries and programming objects stored in the database will be discussed.
+We'll also have a look at SQL injection and other security considerations when designing the application.
+Database rights (grants) will be explained.
+
+A brief overview on NoSQL-databases will be given, including MongoDB.
 
 Promise based JavaScript program with SQL prepared statements should be
 understood by students. The program can be found in the Week2 folder (Credits:
@@ -29,7 +31,7 @@ Following links are worth reading.
 - [Working with nulls] (https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
 - [TO DEFAULT or TO NULL] (https://blog.jooq.org/2014/11/11/have-you-ever-wondered-about-the-difference-between-not-null-and-default/)
 
-### foreign key
+### Foreign key
 
 Creating foreign key while creating the table
 ```
@@ -72,6 +74,14 @@ Please refer to the MySQL manual to look at the possible options.
 ```
 INSERT INTO Department SET dept_id=101, dept_name='fun', dept_head='unmesh';
 ```
+
+### Complicated values to store in MySQL
+- Storing prices (floating point errors)
+- Storing dates (datetime vs. timestamp)
+- datetime : fixed value (joining date of employee): has a calendar date and a wall clock time
+- timestamp : unix timestamp, seconds elapsed from 1 Jan 1970 00:00 in UTC (takes timezone into consideration)
+- enumeration
+
 ### Promise based program demo
 
 The program is called `async-create-insert.js` and can be found in Week2 folder.
@@ -105,6 +115,50 @@ update Department set dept_head = 'Lucas' where dept_id = 3;
 - left and right join : reverse of each other
 - [Join manual](https://dev.mysql.com/doc/refman/8.0/en/join.html)
 
+### Subqueries :
+* Subqueries are when query results are used in an "outer" query, for instance in a where- or join clause.
+
+### Procedures
+
+* Procedures in SQL (aka Stored procedures) are similar to functions in other programming languages.
+i.e. You can define them once and call them multiple times. However, it should be noted that
+MySQL has two different concepts : functions and procedures.
+This stack overflow post has an excellent answer that describes the
+[difference between MySQL functions vs procedures](https://stackoverflow.com/questions/3744209/mysql-stored-procedure-vs-function-which-would-i-use-when)
+
+* There are two scenarios in which procedures are particularly useful:
+(credits to [this stack overflow post](https://stackoverflow.com/questions/12631845/when-should-i-use-stored-procedures-in-mysql))
+1. When we want to entirely encapsulate access to the database by forcing apps to use
+the stored procedures. This can be good for an organization with a strong/large database group
+and a small/weak programming team.
+It's also helpful when you have multiple code bases accessing the database,
+because they all get one interface, rather than each writing their own queries, etc.
+2. When you're repetitively doing something that should be done in the database.
+
+* To create a procedure, use the following syntax:
+```
+Example:
+delimiter //
+create procedure countCountries (OUT param1 int)
+BEGIN
+    select count(*) into param1 from country;
+END
+//
+
+delimiter ;
+```
+* To see existing procedures, use the following command:
+```
+mysql> show procedure status where db = 'dbname';
+```
+
+* To call the procedure, use the following command:
+```
+mysql> call countCountries(@result);
+
+mysql> select @result;
+```
+ 
 ### Triggers
 * Triggers are a mechanism in SQL to prevent seemingly impossible data in the tables.
 * Triggers are fired before/after insertion or updation of the database tables.

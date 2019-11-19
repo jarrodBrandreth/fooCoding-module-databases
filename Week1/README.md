@@ -1,8 +1,8 @@
 # Lesson 1: MySQL and Node setup! Create, Insert and Select !
 
-Objective: This class aims to introduce the students to operate the MySQL database.
-MySQL client can be used control the database instance and to demonstrate SQL queries.
-The class will look at working with data, doing inserts, updates and deletes.
+Objective: This class aims to introduce the students to the MySQL database, and the structure of a relational database. We'll also discuss the object and object classes.
+The class will look at some of the things to consider when designing a database. <br>
+MySQL client can be used control the database instance and working with data, doing inserts, updates and deletes. <br>
 Normalisation and selects using joins will be discussed.
 Concepts of database transaction, ACID properties, normal forms should be introduced with
 examples / live coding (creating a transaction, committing and rollback-ing).
@@ -128,6 +128,32 @@ Recall what a datatype is. js vs mysql types
 ### Fill up a table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
 
+### Database transactions
+- A transaction is a set of commands that you want to treat as "one command." It has to either happen in full or not at all.
+
+- A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
+
+* To start transaction:
+```
+mysql> start;
+OR
+mysql> begin transaction;
+```
+* To commit, use `commit;` and to abort, use `rollback;`
+* Note that `autocommit` variable should be set to false for rollback to work.
+```
+mysql> set autocommit = 0;
+```
+
+### ACID properties
+
+- **Atomicity** : states that database modifications must follow an “all or nothing” rule.
+Each transaction is said to be “atomic.”
+If one part of the transaction fails, the entire transaction fails.
+- **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
+- **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
+- **Durability** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+
 ##### SYNTAX
 ```
 INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
@@ -180,6 +206,21 @@ WHERE  transfer_date > '2008-01-01';
 * Primary key : unique identifier on the data row. Cannot be null, and cannot have any duplicates. Can be created using one or more columns. Should be chosen by the database designer, otherwise chosen automatically by the database, all rows must be uniquely identified
 * Composite key : key spanning multiple columns
 * Foreign key (parent / child keys) : key referencing column(s) in another table
+
+### Normalization
+Database Design following normal forms as a convention.
+These normal forms build incrementally.
+E.g. The database is in 3NF if it is already in 2NF and satisfied the
+rules for 3rd normal form. Read [here] (https://www.studytonight.com/dbms/database-normalization.php) for more details.
+
+#### 1NF (4 rules)
+* Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
+* Rule 2 : Attribute domain should not change
+* Rule 3 : Unique names for attributes / columns
+* Rule 4 : Order does not matter
+
+#### 4NF
+No multi-value dependency.
 
 ## Reference Material
 
