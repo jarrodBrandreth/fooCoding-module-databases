@@ -23,12 +23,12 @@ Question 5 is a bonus question.
 
 
 ## Part 2 : Database design
-I want to develop a ToDo app in which a user can create a multiple
-ToDo lists with different purposes.   
-Each list has at least one item.  
-Each item can be tagged.  
-Each item can be marked completed.  
-There could be reminders for some items.
+I want to develop a ToDo app in which a user can create 
+- Multiple ToDo lists with different purposes.   
+	* Each list has at least one item.  
+	* Each item can be tagged.  
+	* Each item can be marked completed.  
+- There could be reminders for some items.
 
 - Draw an Entity Relationship Diagram for the database of the ToDo App.
 
@@ -43,4 +43,4 @@ and a user INSERTs one more row in the CountryLanguage table, then I should get 
 - Write the necessary SQL statements for this solution and
 - Test your solution with example insert statements.  
 
-This is a bonus question.  
+This is a bonus question, and can be solved in multiple ways.  
