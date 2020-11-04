@@ -28,7 +28,7 @@ I want to develop a ToDo app in which a user can create
 	* Each list has at least one item.  
 	* Each item can be tagged.  
 	* Each item can be marked completed.  
-- There could be reminders for some items.
+	* There could be reminders for some items.
 
 - Draw an Entity Relationship Diagram for the database of the ToDo App.
 
