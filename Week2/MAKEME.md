@@ -5,6 +5,7 @@ The homework contains 3 parts
 Write a node-JS program to get answers of following queries
 on the **new_world** database: Note that you are expected to get the input from user
 and use **prepared** statements to write the queries.
+(This can also be submitted as text-file, just remember to use **prepared** statements)
 
 Hint: use [this] (https://github.com/sidorares/node-mysql2) link to read more
 about prepared statements.  
@@ -21,7 +22,6 @@ Question 5 is a bonus question.
    If yes, display those countries.  
    If no, display TRUE or FALSE  
 
-
 ## Part 2 : Database design
 I want to develop a ToDo app in which a user can create 
 - Multiple ToDo lists with different purposes.   
@@ -30,7 +30,7 @@ I want to develop a ToDo app in which a user can create
 	* Each item can be marked completed.  
 	* There could be reminders for some items.
 
-- Draw an Entity Relationship Diagram for the database of the ToDo App.
+- Create the database schema for this application, and draw an Entity Relationship Diagram for the database of the ToDo App.
 
 Read about Entity-relationship diagrams on the Internet
 E.g. [here] (https://www.lucidchart.com/pages/er-diagrams)
