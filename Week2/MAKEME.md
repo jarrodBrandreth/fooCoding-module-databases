@@ -15,10 +15,9 @@ Question 5 is a bonus question.
 2. List all the languages spoken in the region Y (Accept Y from user)
 3. Find the number of cities in which language Z is spoken (Accept Z from user)
 4. List all the continents with the number of languages spoken in each continent  
-5. Are there any countries that have
-    * Same official language
-    * In the same region
-   as the country given as input
+5. For the country given as input, is there any countries that
+    * have the same official language
+    * is in the same region
    
    If yes, display those countries.  
    If no, display TRUE or FALSE  
