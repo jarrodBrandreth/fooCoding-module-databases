@@ -17,8 +17,9 @@ Question 5 is a bonus question.
 4. List all the continents with the number of languages spoken in each continent  
 5. Are there any countries that have
     * Same official language
-    * Same region
-
+    * In the same region
+   as the country given as input
+   
    If yes, display those countries.  
    If no, display TRUE or FALSE  
 
