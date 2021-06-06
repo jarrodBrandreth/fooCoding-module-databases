@@ -42,7 +42,7 @@ Create a database for the view :
 Create the view :
 ```
  create view views.employee_locations as
-   select e.first_name, e.last_name, jt.name, l.city, l.country 
+   select e.first_name, e.last_name, jt.name 'job_title', l.city, l.country 
    from view_data.employees e 
     inner join view_data.job_title jt on e.job_id = jt.id 
     inner join view_data.locations l on e.location_id = l.id ;
@@ -51,7 +51,7 @@ Create the view :
 Verify that the view returns the correct result :
 ```
  select first_name, last_name, job_title, city, country 
-  from views.employee_location;
+  from views.employee_locations;
 ```
 
 ### Open a second session to the database, as the user 'viewuser', and run the selects :
@@ -72,7 +72,7 @@ Select the data from  the source tables :
 and try to select the data from the view :
 ```
  select first_name, last_name, job_title, city, country 
-  from views.employee_location;
+  from views.employee_locations;
 ```
 
 #### In the first session, do :
