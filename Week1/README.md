@@ -13,13 +13,16 @@ examples / live coding (creating a transaction, committing and rollback-ing).
 - Install MySQL Workbench (graphical client, optional) <br>
 *Make a note of the root password either given to you or set by you during the installation*
 
+# Please ignore everything after this line 
+## Page update / rewrite in progress
+
 
 ## Setup
 
 ### MySQL setup
 This setup assumes MySQL version 5.7.
 - Windows users should use **Microsoft MySQL Command Line** client.
-- Linux and MAC users should use **gnome-terminal** and **Terminal** respectively.
+- Linux and MAC users should use a terminal, i.e. X-Term, Terminal or similar
 
 **Microsoft MySQL Command Line** client gives you a **mysql>** prompt after typing in your root password.
 Note that this password is the one you used for root user of the mysql.
