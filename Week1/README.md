@@ -13,9 +13,6 @@ examples / live coding (creating a transaction, committing and rollback-ing).
 - Install MySQL Workbench (graphical client, optional) <br>
 *Make a note of the root password either given to you or set by you during the installation*
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0299ced540444d7197460e7f1f74ddab) on Lynda.
-If you actually manage to watch them all and understand everything,
-then you are a database expert.
 
 ## Setup
 
