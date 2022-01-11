@@ -48,5 +48,5 @@ retrieve data from tables using SELECT statements that include FROM, WHERE claus
 * MySQL basics
 * Working with data in MySQL
 
-*Further reading can be found in **week1.md** *
+Further reading can be found in **week1.md** 
 
