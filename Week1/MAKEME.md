@@ -24,9 +24,10 @@ then query (using select statements) the **new_world** database to answer follow
 10. What is the population of the world ?
 
 
-# Importing a MySQL-dump into an instance:
+### Importing a MySQL-dump into an instance:
 - in a console, change directory to the Week1 directory. Then type 
     mysql < new_world.sql
+    (this requires that the path to the mysql-binary has been added to the users PATH-variable)
 - in MySQL Workbench, do
     click "Server" -> "Data Import"
     choose "Import from self-contained file", and browse to the Week1/new_world.sql-file
