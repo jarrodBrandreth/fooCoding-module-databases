@@ -1,15 +1,6 @@
-title: Database Week 1
-author:
-    name: Johan Nilsson
-    url: https://github.com/sjalilund
-output: week1.html
-controls: true
-
---
 
 # Database 101
 
---
 
 ### What is a Database ?
 * Definition : Organized collection of data and rules about its manipulation
@@ -23,7 +14,7 @@ const capitals = [
   "Damascus",
   "Madrid"];
 ```
---
+---
 
 ### Relations = Table
 
@@ -34,7 +25,7 @@ const capitals = [
 * Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
 his 24th birthday works in Facebook and lives in Redmond.
 
---
+---
 
 ### DBMS implementations
 
@@ -43,7 +34,7 @@ his 24th birthday works in Facebook and lives in Redmond.
 * MongoDB (NoSQL)
 * Cassandra (NoSQL)
 
---
+---
 
 ### MySQL
 
@@ -51,7 +42,7 @@ his 24th birthday works in Facebook and lives in Redmond.
 * mysql: monitor / terminal / client (to connect to the server and execute stuff)
 * mysqladmin: Administering a MySQL Server
 
---
+---
 
 ### Create a user, grant privileges, create database
 
@@ -69,8 +60,7 @@ mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost';
 
 # The old way to create a new user with privileges
 mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost' IDENTIFIED BY 'foopassword';
-
-# note: this is deprecated in 5.7, and might (will?) be removed in future releases
+*note: this is deprecated in 5.7, and might (will?) be removed in future releases*
 
 ```
 ---
@@ -87,7 +77,8 @@ CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]
 * INT(N), FLOAT(N.N)
 * DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
 * BLOB (LOAD_FILE(filename))
---
+
+---
 
 ### Fill up the table in MySQL: INSERT rows
 A row (aka record or tuple) represents a single, implicitly structured data item in the table.
@@ -96,12 +87,12 @@ A row (aka record or tuple) represents a single, implicitly structured data item
 ```
 INSERT INTO table_name (column1 [, column2, column3, ...]) VALUES (value1 [, value2, value3, ...]);
 ```
-* INSERT INTO table_name VALUES (...values...)
 * INSERT INTO table_name (column1 [, column2,...]) 
   SELECT column1 [, column2,...] FROM other_table
 * INSERT INTO table_name SET column_name = {expr | DEFAULT}
+* INSERT INTO table_name VALUES (...values...)
 
---
+---
 
 ### See the content : SELECT
 
@@ -115,7 +106,7 @@ SELECT */column_name FROM TABLE
 WHERE condition1 AND/OR
       condition;
 ```
---
+---
 
 ### INSERT and SELECT together
 
@@ -128,7 +119,7 @@ SELECT 3,
 FROM   transferred_ employees
 WHERE  transfer_date > '2008-01-01';
 ```
---
+---
 
 ### Uniqueness and Keys
 
@@ -136,7 +127,7 @@ WHERE  transfer_date > '2008-01-01';
 * Unique key : must have an unique value in the column, can be NULL
 
 composite key : a single key spans multiple columns
---
+---
 
 ### Relations
 
@@ -144,7 +135,7 @@ composite key : a single key spans multiple columns
 * One to Many : Department to Employee
 * Many to Many : Project to Employee
 
---
+---
 
 ### Foreign key
 
