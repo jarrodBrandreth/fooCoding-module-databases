@@ -1,7 +1,7 @@
 title: Database Week 1
 author:
-    name: Unmesh Joshi
-    url: https://unmeshjoshi.wordpress.com
+    name: Johan Nilsson
+    url: https://github.com/sjalilund
 output: week1.html
 controls: true
 
@@ -31,18 +31,18 @@ const capitals = [
 * Delhi is the capital of India
 * Amsterdam is the capital of Netherlands
 * Damascus is the capital of Syria
-
-Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
+* Dan, 29, works in Amazon and lives in Seattle. His friend Ben who just celebrated
 his 24th birthday works in Facebook and lives in Redmond.
 
----
+--
 
 ### DBMS implementations
 
-* ** MySQL **
+* MySQL 
 * PostgreSQL
 * MongoDB (NoSQL)
 * Cassandra (NoSQL)
+
 --
 
 ### MySQL
@@ -56,14 +56,21 @@ his 24th birthday works in Facebook and lives in Redmond.
 ### Create a user, grant privileges, create database
 
 ```
-# Create a new user with privileges
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'hyfuser'@'localhost' IDENTIFIED BY 'hyfpassword';
-
-Query OK, 0 rows affected, 1 warning (0.01 sec)
 
 # Create a database to work with
 
-mysql>create database todo_app
+mysql> create database foodb;
+
+# Create the user 
+mysql> CREATE USER  'foouser'@'localhost' IDENTIFIED BY 'foopassword';
+
+# Grant privileges 
+mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost';
+
+# The old way to create a new user with privileges
+mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost' IDENTIFIED BY 'foopassword';
+
+# note: this is deprecated in 5.7, and might (will?) be removed in future releases
 
 ```
 ---
@@ -76,7 +83,8 @@ mysql>create database todo_app
 CREATE TABLE table_name (column_name, column_type [, column2_name, column2_type]);
 ```
 
-* INT(N) type
+* CHAR(N), VARCHAR(N)
+* INT(N), FLOAT(N.N)
 * DATE, DATETIME and TIMESTAMP, (set time_zone = '+03:00')
 * BLOB (LOAD_FILE(filename))
 --
@@ -86,10 +94,11 @@ A row (aka record or tuple) represents a single, implicitly structured data item
 
 ## SYNTAX
 ```
-INSERT INTO table_name VALUES(value1, value2 [,value3,...]);
+INSERT INTO table_name (column1 [, column2, column3, ...]) VALUES (value1 [, value2, value3, ...]);
 ```
-* INSERT INTO table_name VALUES(...values...)
-* INSERT INTO table_name (column names) VALUES(..values...)
+* INSERT INTO table_name VALUES (...values...)
+* INSERT INTO table_name (column1 [, column2,...]) 
+  SELECT column1 [, column2,...] FROM other_table
 * INSERT INTO table_name SET column_name = {expr | DEFAULT}
 
 --
@@ -123,9 +132,10 @@ WHERE  transfer_date > '2008-01-01';
 
 ### Uniqueness and Keys
 
-* Super key : set of columns that uniquely identify a row
-* Candidate key : minimal super key that can uniquely identify a row
-* Primary key : choice of candidate key chosen by database designer : cannot be null
+* Primary key : must have an unique value in the column, and cannot be NULL
+* Unique key : must have an unique value in the column, can be NULL
+
+composite key : a single key spans multiple columns
 --
 
 ### Relations
@@ -133,6 +143,7 @@ WHERE  transfer_date > '2008-01-01';
 * One to One : Account to Employee
 * One to Many : Department to Employee
 * Many to Many : Project to Employee
+
 --
 
 ### Foreign key
