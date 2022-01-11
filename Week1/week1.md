@@ -44,10 +44,9 @@ his 24th birthday works in Facebook and lives in Redmond.
 
 ---
 
-### Create a user, grant privileges, create database
+### Create a database, user and grant privileges
 
 ```
-
 # Create a database to work with
 
 mysql> create database foodb;
@@ -142,3 +141,45 @@ composite key : a single key spans multiple columns
 
 * A field (or collection of fields) in one table that uniquely identifies a row of another table or the same table
 * In simpler words, the foreign key is defined in a second table, but it refers to the primary key or a unique key in the first table
+
+## Database transactions
+- A transaction is a set of commands that you want to treat as "one command." It has to either happen in full or not at all.
+
+- A classical example is transferring money from one bank account to another. To do that you have first to withdraw the amount from the source account, and then deposit it to the destination account. The operation has to succeed in full. If you stop halfway, the money will be lost, and that is Very Bad.
+
+* To start transaction:
+```
+mysql> start;
+OR
+mysql> begin transaction;
+```
+* To commit, use `commit;` and to abort, use `rollback;`
+* Note that `autocommit` variable should be set to false for rollback to work.
+```
+mysql> set autocommit = 0;
+```
+
+### ACID properties
+
+- **Atomicity** : states that database modifications must follow an “all or nothing” rule.
+Each transaction is said to be “atomic.”
+If one part of the transaction fails, the entire transaction fails.
+- **Consistency** : states that only valid data will be written to the database. If, for some reason, a transaction is executed that violates the database’s consistency rules, the entire transaction will be rolled back, and the database will be restored to a state consistent with those rules.
+- **Isolation** : requires that multiple transactions occurring at the same time not impact each other’s execution.
+- **Durability** : ensures that any transaction committed to the database will not be lost. Durability is ensured through the use of database backups and transaction logs that facilitate the restoration of committed transactions in spite of any subsequent software or hardware failures.
+
+### Normalization
+Database Design following normal forms as a convention.
+These normal forms build incrementally.
+E.g. The database is in 3NF if it is already in 2NF and satisfied the
+rules for 3rd normal form. Read [here] (https://www.studytonight.com/dbms/database-normalization.php) for more details.
+
+#### 1NF (4 rules)
+* Rule 1 : Single valued attributes (each column should have atomic value, no multiple values)
+* Rule 2 : Attribute domain should not change
+* Rule 3 : Unique names for attributes / columns
+* Rule 4 : Order does not matter
+
+#### 4NF
+No multi-value dependency.
+
