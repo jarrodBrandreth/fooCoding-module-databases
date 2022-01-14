@@ -3,9 +3,9 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'hyfuser',
-  password: 'hyfpassword',
-  database: 'class17',
+  user: 'foouser',
+  password: 'foopassword',
+  database: 'foodb',
 });
 
 // Promisify the bind function of query function of connection object

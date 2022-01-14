@@ -4,9 +4,9 @@ const util = require('util');
 
 const connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'hyfuser',
-  password : 'hyfpassword',
-  database : 'test',
+  user     : 'foouser',
+  password : 'foopassword',
+  database : 'foodb',
   multipleStatements: false
 });
 
