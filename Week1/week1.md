@@ -55,10 +55,10 @@ mysql> create database foodb;
 mysql> CREATE USER  'foouser'@'localhost' IDENTIFIED BY 'foopassword';
 
 # Grant privileges 
-mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost';
+mysql> GRANT ALL PRIVILEGES ON foodb.* TO 'foouser'@'localhost';
 
 # The old way to create a new user with privileges
-mysql> GRANT ALL PRIVILEGES ON *.foodb TO 'foouser'@'localhost' IDENTIFIED BY 'foopassword';
+mysql> GRANT ALL PRIVILEGES ON foodb.* TO 'foouser'@'localhost' IDENTIFIED BY 'foopassword';
 
 note: this is deprecated in 5.7, and might (will?) be removed in future releases
 
