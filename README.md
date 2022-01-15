@@ -38,8 +38,9 @@ examples / live coding (creating a transaction, committing and rollback-ing).
 
 Objective: This class introduces more clauses (group by, having) in the
 select statement. MySQL joins (inner, self, left and right) should be explained
-with demonstration (Employee table with **reportsTo** field and Department
-table with its PK in Employee table is suitable for this demonstration).
+with demonstration. User permisions and authorization will be discussed. 
+
+The main differences between SQL and NoSQL-databases should be understood.
 
 Promise based JavaScript program with SQL prepared statements should be
 understood by students. The program can be found in the Week2 folder (Credits:
@@ -49,7 +50,7 @@ This class invites students to discuss Entity Relationship Diagram (ERD).
 Students should be able to explain their choices of entities, relationships, attributes etc.
 SQL injection should be explained. 
 
-### Homework 3: Application development
+### Lesson 3: Application development
 
 The goal is that the students should be able to design a web-based todo-application, using MySQL as a backend. 
 The application should handle authenthication, task-creation, tagging tasks etc. More information is found in [Week3/MAKEME.md](https://github.com/foocoding/databases/blob/master/Week3/MAKEME.md)

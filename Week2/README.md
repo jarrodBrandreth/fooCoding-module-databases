@@ -18,10 +18,8 @@ SQL injection should be explained.
 
 ## Pre-Class Readings
 
-Before arriving to class on Sunday, please watch all of the videos in [this video playlist](https://www.lynda.com/SharedPlaylist/0d62f3e4428e44ada89466cdbc296fc0) on Lynda.
-
 Also, please read the following page that explains the ACID database model.
-- [The ACID Database Model](https://www.thoughtco.com/the-acid-model-1019731)
+- [The ACID Database Model](https://en.wikipedia.org/wiki/ACID)
 
 ## Topics to be covered
 
@@ -29,7 +27,7 @@ Also, please read the following page that explains the ACID database model.
 
 Following links are worth reading.
 - [Working with nulls] (https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
-- [TO DEFAULT or TO NULL] (https://blog.jooq.org/2014/11/11/have-you-ever-wondered-about-the-difference-between-not-null-and-default/)
+- [NULL vs empty string] (https://dev.mysql.com/doc/refman/8.0/en/problems-with-null.html)
 
 ### Foreign key
 
@@ -196,6 +194,3 @@ of the manager of the project.
 - [Node MySQL Preparing Queries (automatic escaping)](https://github.com/mysqljs/mysql#preparing-queries)
 - [MySQL SHOW GRANTS](https://dev.mysql.com/doc/refman/5.7/en/show-grants.html)
 - [Falsehoods Programmers Believe About Names](http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
-- [Rewatch the previously recorded session: part 1](https://www.youtube.com/watch?v=G6v1po3zvNk)
-- [Rewatch the previously recorded session: part 2](https://www.youtube.com/watch?v=5fv1vV1TciM)
-- [Rewatch the previously recorded session: part 3](https://www.youtube.com/watch?v=ZNLhHUDj6jo)
