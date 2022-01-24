@@ -95,5 +95,9 @@ What happens if we update something else?
  drop table new_world.population_log;
 ```
 
-
+### Reference:
+MySQL official documentation on triggers
+- [Create trigger](https://dev.mysql.com/doc/refman/8.0/en/create-trigger.html)
+- [Trigger syntax and examples](https://dev.mysql.com/doc/refman/8.0/en/trigger-syntax.html)
+- [Drop trigger](https://dev.mysql.com/doc/refman/8.0/en/drop-trigger.html)]
 
