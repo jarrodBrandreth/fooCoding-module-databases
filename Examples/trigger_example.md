@@ -10,7 +10,7 @@ This way, we can see how population changes over time
 -- create / drop trigger 
 -- insert / update / delete on tables
 
-#### Import database dump from new_world.sql (found in the Week1/Homework-directory), if it doesn't exist
+#### Import database dump from [new_world.sql](https://github.com/foocoding/databases/blob/master/Week1/databases/new_world.sql), if it doesn't exist
 
 #### Open a client connection the the database
 Verify that the database new_world exists
