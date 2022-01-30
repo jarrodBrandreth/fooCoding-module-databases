@@ -17,10 +17,10 @@ Question 5 is a bonus question.
 4. List all the continents with the number of languages spoken in each continent  
 5. For the country given as input, is there any countries that
     * have the same official language
-    * is in the same region
+    * is in the same continent
    
    If yes, display those countries.  
-   If no, display TRUE or FALSE  
+   If no, display FALSE  
 
 ## Part 2 : Database design
 I want to develop a ToDo app in which a user can create 
