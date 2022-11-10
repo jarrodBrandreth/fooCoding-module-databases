@@ -36,7 +36,7 @@ app.get('/capitalOfCountry/:userInput', (req, res) => {
 // -- List all the languages spoken in the region Y (Accept Y from user)
 app.get('/languagesOfRegion/:userInput', (req, res) => {
   db.execute(
-    'SELECT Language, Name FROM countryLanguage INNER JOIN country ON country.Code = countrylanguage.CountryCode WHERE country.name = ?',
+    'SELECT DISTINCT Language AS Languages FROM countryLanguage INNER JOIN country ON country.Code = countrylanguage.CountryCode WHERE country.region = ?',
     [req.params.userInput],
     function (err, results, fields) {
       console.log(results);
@@ -60,7 +60,7 @@ app.get('/numberOfCitiesForLanguage/:userInput', (req, res) => {
 // -- List all the continents with the number of languages spoken in each continent
 app.get('/numberOfLanguagesPerContinent', (req, res) => {
   db.execute(
-    'SELECT Continent, count(countryLanguage.Language) AS NumOfLanguages FROM country INNER JOIN countryLanguage ON country.Code = countryLanguage.CountryCode GROUP BY Continent ORDER BY NumOfLanguages DESC',
+    'SELECT Continent AS Continents, count(DISTINCT countryLanguage.Language) AS NumOfLanguages FROM country INNER JOIN countryLanguage ON country.Code = countryLanguage.CountryCode GROUP BY Continent ORDER BY NumOfLanguages DESC',
     [],
     function (err, results, fields) {
       console.log(results);
