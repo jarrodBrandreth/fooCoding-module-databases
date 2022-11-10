@@ -7,7 +7,7 @@ SET @X = 'Spain';
 EXECUTE capitals using @X;
 
 -- List all the languages spoken in the region Y (Accept Y from user)
-PREPARE languages FROM 'SELECT DISTINCT Language AS Languages 
+PREPARE languages FROM 'SELECT DISTINCT countryLanguage.Language AS Languages 
 FROM countryLanguage INNER JOIN country ON country.Code = countrylanguage.CountryCode 
 WHERE country.region = ?';
 SET @Y = 'Caribbean';
@@ -21,7 +21,7 @@ SET @Z = 'Yi';
 EXECUTE numberOfCitiesForLanguage using @Z;
 
 -- List all the continents with the number of languages spoken in each continent
-PREPARE numberOfLanguagesPerContinent FROM 'SELECT Continent AS Continents, count(DISTINCT countryLanguage.Language) AS NumOfLanguages 
+PREPARE numberOfLanguagesPerContinent FROM 'SELECT country.Continent AS Continents, count(DISTINCT countryLanguage.Language) AS NumOfLanguages 
 FROM country INNER JOIN countryLanguage ON country.Code = countryLanguage.CountryCode
 GROUP BY Continent
 ORDER BY NumOfLanguages DESC';
